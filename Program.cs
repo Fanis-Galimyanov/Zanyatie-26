@@ -7,24 +7,35 @@ namespace z25
     {
         static void Main(string[] args)
         {
-            var people = new List<string>() { "Tom", "Bob", "Sam" };
+            List<string> people = new List<string>() { "Tom" };
 
+            people.Add("Bob"); // добавление элемента
+                               // people = { "Tom", "Bob" };
+
+            people.AddRange(new[] { "Sam", "Alice" });   // добавляем массив
+                                                         // people = { "Tom", "Bob", "Sam", "Alice" };
+                                                         // также можно было бы добавить другой список
+                                                         // people.AddRange(new List<string>(){ "Sam", "Alice" });
+
+            people.Insert(0, "Eugene"); // вставляем на первое место
+                                        // people = { "Eugene", "Tom", "Bob", "Sam", "Alice" };
+
+            people.InsertRange(1, new string[] { "Mike", "Kate" }); // вставляем массив с индекса 1
+                                                                    // people = { "Eugene", "Mike", "Kate", "Tom", "Bob", "Sam", "Alice" };
+
+            // также можно было бы добавить другой список
+             people.InsertRange(1, new List<string>(){ "Ivan", "Alexander" });
+
+            
             foreach (var person in people)
             {
                 Console.WriteLine(person);
             }
-            // Вывод программы:
-            // Tom
-            // Bob
-            // Sam
 
 
-        }
 
-        class Person
-        {
-            public string Name { get; }
-            public Person(string name) => Name = name;
+
+
         }
     }
 }
