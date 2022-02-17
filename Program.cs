@@ -8,34 +8,22 @@ namespace z25
         static void Main(string[] args)
         {
 
-            var people = new List<string>() { "Eugene", "Mike", "Kate", "Tom", "Bob", "Sam" };
+            List<string> people = new List<string>() { "Eugene", "Tom", "Mike", "Sam", "Bob" };
 
-            var containsBob = people.Contains("Bob");     //  true
-            var containsBill = people.Contains("Bill");    // false
+            // получаем диапазон со второго по четвертый элемент
+            var range = people.GetRange(1, 3);
+            // range = { "Tom", "Mike", "Sam"};
 
-            // проверяем, есть ли в списке строки с длиной 3 символа
-            var existsLength3 = people.Exists(p => p.Length == 3);  // true
-
-            // проверяем, есть ли в списке строки с длиной 7 символов
-            var existsLength7 = people.Exists(p => p.Length == 7);  // false
-
-            // получаем первый элемент с длиной в 3 символа
-            var firstWithLength3 = people.Find(p => p.Length == 3); // Tom
-
-            // получаем последний элемент с длиной в 3 символа
-            var lastWithLength3 = people.FindLast(p => p.Length == 3);  // Sam
-
-            // получаем все элементы с длиной в 3 символа в виде списка
-            List<string> peopleWithLength3 = people.FindAll(p => p.Length == 3);
-            // peopleWithLength3 { "Tom", "Bob", "Sam"}
+            // копируем в массив первые три элемента
+            string[] partOfPeople = new string[3];
+            people.CopyTo(2, partOfPeople, 0, 3);
+            // partOfPeople = { "Eugene", "Tom", "Mike"};
 
 
-
-
-            /*foreach (var person in people)
+            foreach (var person in partOfPeople)
             {
                 Console.WriteLine(person);
-            }*/
+            }
 
         }
     }
