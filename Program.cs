@@ -7,12 +7,25 @@ namespace z25
     {
         static void Main(string[] args)
         {
-            var employees = new List<string> { "Tom", "Sam", "Bob" };
-            Queue<string> people = new Queue<string>(employees);
+            var people = new Queue<string>();
 
-            foreach (var person in people) Console.WriteLine(person);
+            // добавляем элементы
+            people.Enqueue("Tom");  // people = { Tom }
+            people.Enqueue("Bob");  // people = { Tom, Bob }
+            people.Enqueue("Sam");  // people = { Tom, Bob, Sam }
 
-            Console.WriteLine(people.Count); // 3
+            // получаем элемент из самого начала очереди 
+            var firstPerson = people.Peek();
+            Console.WriteLine(firstPerson); // Tom
+
+            // удаляем элементы
+            var person1 = people.Dequeue();  // people = { Bob, Sam  }
+            Console.WriteLine(person1); // Tom
+            var person2 = people.Dequeue();  // people = { Sam  }
+            Console.WriteLine(person2); // Bob
+            var person3 = people.Dequeue();  // people = {  }
+            Console.WriteLine(person3); // Sam
+
 
 
 
