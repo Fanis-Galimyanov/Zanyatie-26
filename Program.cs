@@ -9,11 +9,14 @@ namespace z25
         {
             var people = new List<string>() { "Tom", "Bob", "Sam" };
 
-            string firstPerson = people[0]; // получаем первый элемент
-            Console.WriteLine(firstPerson); // Tom
-            people[0] = "Mike";     // изменяем первый элемент
-            Console.WriteLine(people[0]); // Mike
-
+            foreach (var person in people)
+            {
+                Console.WriteLine(person);
+            }
+            // Вывод программы:
+            // Tom
+            // Bob
+            // Sam
 
 
         }
