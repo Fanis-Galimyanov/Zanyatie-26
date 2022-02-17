@@ -9,14 +9,20 @@ namespace z25
         {
             var people = new ObservableCollection<string>
             {
-                    "Tom", "Bob", "Sam"
-            };
+            "Tom", "Bob", "Sam"
+             };
 
-            // получаем первый элемент
-            Console.WriteLine(people[0]);   // Tom
-                                            // изменяем первый элемент
-            people[0] = "Tomas";
-            Console.WriteLine(people[0]);   // Tomas
+            foreach (string person in people)
+            {
+                Console.WriteLine(person);
+            }
+
+
+            for (int i = 0; i < people.Count; i++)
+            {
+                Console.WriteLine(people[i]);
+            }
+
 
 
 
