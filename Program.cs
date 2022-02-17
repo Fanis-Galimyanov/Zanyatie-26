@@ -7,20 +7,22 @@ namespace z25
     {
         static void Main(string[] args)
         {
-            /*      Dictionary<int, string> people = new Dictionary<int, string>();*/
-            /*       var people = new Dictionary<int, string>()
-                   {
-                       { 5, "Tom"},
-                       { 3, "Sam"},
-                       { 11, "Bob"}
-                   };*/
-
-            var people = new Dictionary<int, string>()
+            var mike = new KeyValuePair<int, string>(56, "Mike");
+            var employees = new List<KeyValuePair<int, string>>() { mike };
+            var people = new Dictionary<int, string>(employees)
             {
                 [5] = "Tom",
                 [6] = "Sam",
-                [7] = "Bob"
+                [7] = "Bob",
             };
+
+            foreach (var person in people)
+            {
+                Console.WriteLine($"key: {person.Key}  value: {person.Value}");
+            }
+
+
+
 
 
         }
