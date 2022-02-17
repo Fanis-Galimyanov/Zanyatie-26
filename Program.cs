@@ -8,25 +8,27 @@ namespace z25
         static void Main(string[] args)
         {
 
-            var people = new List<string>() { "Eugene", "Mike", "Kate", "Tom", "Bob", "Sam", "Tom", "Alice" };
+            var people = new List<string>() { "Eugene", "Mike", "Kate", "Tom", "Bob", "Sam" };
 
-            people.RemoveAt(1); //  удаляем второй элемент
-                                // people = { "Eugene", "Kate", "Tom", "Bob", "Sam", "Tom", "Alice" };
+            var containsBob = people.Contains("Bob");     //  true
+            var containsBill = people.Contains("Bill");    // false
 
-            people.Remove("Tom"); //  удаляем элемент "Tom"
-                                  // people = { "Eugene", "Kate", "Bob", "Sam", "Tom", "Alice" };
+            // проверяем, есть ли в списке строки с длиной 3 символа
+            var existsLength3 = people.Exists(p => p.Length == 3);  // true
 
-            // удаляем из списка все элементы, длина строки которых равна 3
-            people.RemoveAll(person => person.Length == 3);
-            // people = { "Eugene", "Kate", "Alice" };
+            // проверяем, есть ли в списке строки с длиной 7 символов
+            var existsLength7 = people.Exists(p => p.Length == 7);  // false
 
-            // удаляем из списка 2 элемента начиная с индекса 1
-            people.RemoveRange(1, 2);
-            // people = { "Eugene"};
+            // получаем первый элемент с длиной в 3 символа
+            var firstWithLength3 = people.Find(p => p.Length == 3); // Tom
 
-            // полностью очищаем список
-            people.Clear();
-            // people = {  };
+            // получаем последний элемент с длиной в 3 символа
+            var lastWithLength3 = people.FindLast(p => p.Length == 3);  // Sam
+
+            // получаем все элементы с длиной в 3 символа в виде списка
+            List<string> peopleWithLength3 = people.FindAll(p => p.Length == 3);
+            // peopleWithLength3 { "Tom", "Bob", "Sam"}
+
 
 
 
