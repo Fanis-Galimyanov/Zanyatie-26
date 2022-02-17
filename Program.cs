@@ -7,26 +7,25 @@ namespace z25
     {
         static void Main(string[] args)
         {
-            var people = new ObservableCollection<string>
-            {
-            "Tom", "Bob", "Sam"
-             };
+            var people = new ObservableCollection<string>();
 
-            foreach (string person in people)
-            {
-                Console.WriteLine(person);
-            }
+            // добавляем элемент
+            people.Add("Bob");
+            // вставляем элемент по индексу 0
+            people.Insert(0, "Tom");
 
+            // проверка наличия элемента 
+            bool bobExists = people.Contains("Bob");     // true
+            Console.WriteLine($"Bob exists: {bobExists}");
+            bool mikeExists = people.Contains("Mike");   // false
+            Console.WriteLine($"Mike exists: {mikeExists}");
 
-            for (int i = 0; i < people.Count; i++)
-            {
-                Console.WriteLine(people[i]);
-            }
+            // удаляем элемент
+            people.Remove("Tom");
+            // удаляем элемент по индексу 0
+            people.RemoveAt(0);
 
-
-
-
-
+           /* people.RemoveAt(0);*/
 
         }
     }
