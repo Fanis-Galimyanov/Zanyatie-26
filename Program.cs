@@ -6,7 +6,10 @@ namespace z25
     {
         static void Main(string[] args)
         {
-            List<string> people = new List<string>() { "Tom", "Bob", "Sam" };
+            var people = new List<string>() { "Tom", "Bob", "Sam" };
+            var employees = new List<string>(people) { "Mike" };
+
+
 
 
         }
