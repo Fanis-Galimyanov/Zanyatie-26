@@ -7,19 +7,17 @@ namespace z25
     {
         static void Main(string[] args)
         {
-            ObservableCollection<string> people1 = new ObservableCollection<string>();
-
-            var people2 = new ObservableCollection<string>(new string[] { "Tom", "Bob", "Sam" });
-
-            var people3 = new ObservableCollection<string>
+            var people = new ObservableCollection<string>
             {
-                "Tom", "Bob", "Sam"
+                    "Tom", "Bob", "Sam"
             };
 
-            var people = new ObservableCollection<string>(new string[] { "Mike", "Alice", "Kate" })
-            {
-            "Tom", "Bob", "Sam"
-            };
+            // получаем первый элемент
+            Console.WriteLine(people[0]);   // Tom
+                                            // изменяем первый элемент
+            people[0] = "Tomas";
+            Console.WriteLine(people[0]);   // Tomas
+
 
 
 
