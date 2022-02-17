@@ -6,12 +6,19 @@ namespace z25
     {
         static void Main(string[] args)
         {
-            var people = new List<string>() { "Tom", "Bob", "Sam" };
-            var employees = new List<string>(people) { "Mike" };
+            List<Person> people = new List<Person>()
+            {
+                new Person("Tom"),
+                new Person("Bob"),
+                new Person("Sam")
+            };
 
-
-
-
+        }
+        
+        class Person
+        {
+            public string Name { get; }
+            public Person(string name) => Name = name;
         }
     }
 }
