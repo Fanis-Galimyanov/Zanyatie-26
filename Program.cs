@@ -7,34 +7,15 @@ namespace z25
     {
         static void Main(string[] args)
         {
-            var patients = new Queue<Person>();
-            patients.Enqueue(new Person("Tom"));
-            patients.Enqueue(new Person("Bob"));
-            patients.Enqueue(new Person("Sam"));
+            var employees = new List<string> { "Tom", "Sam", "Bob" };
+            Stack<string> people = new Stack<string>(employees);
+            foreach (var person in people) Console.WriteLine(person);
 
-            var practitioner = new Doctor();
-            practitioner.TakePatients(patients);
+            Console.WriteLine(people.Count); // 3
+
+
 
         }
-    }
-
-    class Person
-    {
-            public string Name { get; }
-            public Person(string name) => Name = name;
-    }
-
-    class Doctor
-    {
-            public void TakePatients(Queue<Person> patients)
-            {
-                while (patients.Count > 0)
-                {
-                    var patient = patients.Dequeue();
-                    Console.WriteLine($"Осмотр пациента {patient.Name}");
-                }
-                Console.WriteLine("Доктор закончил осматривать пациентов");
-            }
     }
 
 }
