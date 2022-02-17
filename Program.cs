@@ -11,23 +11,13 @@ namespace z25
 
             // добавляем элементы
             people.Enqueue("Tom");  // people = { Tom }
-            people.Enqueue("Bob");  // people = { Tom, Bob }
-            people.Enqueue("Sam");  // people = { Tom, Bob, Sam }
-
-            // получаем элемент из самого начала очереди 
-            var firstPerson = people.Peek();
-            Console.WriteLine(firstPerson); // Tom
 
             // удаляем элементы
-            var person1 = people.Dequeue();  // people = { Bob, Sam  }
-            Console.WriteLine(person1); // Tom
-            var person2 = people.Dequeue();  // people = { Sam  }
-            Console.WriteLine(person2); // Bob
-            var person3 = people.Dequeue();  // people = {  }
-            Console.WriteLine(person3); // Sam
+            var success1 = people.TryDequeue(out var person1);  // success1 = true
+            if (success1) Console.WriteLine(person1); // Tom
 
-
-
+            var success2 = people.TryPeek(out var person2);  // success2 = false
+            if (success2) Console.WriteLine(person2);
 
         }
 
