@@ -8,22 +8,23 @@ namespace z25
         static void Main(string[] args)
         {
 
-            List<string> people = new List<string>() { "Eugene", "Tom", "Mike", "Sam", "Bob" };
+            var people = new List<string>() { "Eugene", "Tom", "Mike", "Sam", "Bob" };
 
-            // получаем диапазон со второго по четвертый элемент
-            var range = people.GetRange(1, 3);
-            // range = { "Tom", "Mike", "Sam"};
+            // переворачиваем весь список
+            people.Reverse();
+            // people = { "Bob","Sam", "Mike", "Tom", "Eugene"};
 
-            // копируем в массив первые три элемента
-            string[] partOfPeople = new string[3];
-            people.CopyTo(2, partOfPeople, 0, 3);
-            // partOfPeople = { "Eugene", "Tom", "Mike"};
+            var people2 = new List<string>() { "Eugene", "Tom", "Mike", "Sam", "Bob" };
+            // переворачиваем часть только 3 элемента с индекса 1
+            people2.Reverse(1, 3);
+            // people2 = { "Eugene","Sam", "Mike", "Tom", "Bob" };
 
 
-            foreach (var person in partOfPeople)
-            {
-                Console.WriteLine(person);
-            }
+
+            /* foreach (var person in partOfPeople)
+             {
+                 Console.WriteLine(person);
+             }*/
 
         }
     }
