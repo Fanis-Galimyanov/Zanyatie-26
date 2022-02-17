@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace z25
 {
@@ -6,7 +6,9 @@ namespace z25
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello It Park!");
+            List<string> people = new List<string>() { "Tom", "Bob", "Sam" };
+
+
         }
     }
 }
