@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace z25
 {
@@ -7,29 +7,21 @@ namespace z25
     {
         static void Main(string[] args)
         {
-            // условная телефонная книга
-            var phoneBook = new Dictionary<string, string>();
+            ObservableCollection<string> people1 = new ObservableCollection<string>();
 
-            // добавляем элемент: ключ - номер телефона, значение - имя абонента
-            phoneBook.Add("+123456", "Tom");
-            // альтернативное добавление
-            // phoneBook["+123456"] = "Tom";
+            var people2 = new ObservableCollection<string>(new string[] { "Tom", "Bob", "Sam" });
 
-            // Проверка наличия
-            var phoneExists1 = phoneBook.ContainsKey("+123456");    // true
-            Console.WriteLine($"+123456: {phoneExists1}");
-            var phoneExists2 = phoneBook.ContainsKey("+567456");    // false
-            Console.WriteLine($"+567456: {phoneExists2}");
-            var abonentExists1 = phoneBook.ContainsValue("Tom");      // true
-            Console.WriteLine($"Tom: {abonentExists1}");
-            var abonentExists2 = phoneBook.ContainsValue("Bob");      // false
-            Console.WriteLine($"Bob: {abonentExists2}");
+            var people3 = new ObservableCollection<string>
+            {
+                "Tom", "Bob", "Sam"
+            };
 
-            // удаление элемента
-            phoneBook.Remove("+123456");
+            var people = new ObservableCollection<string>(new string[] { "Mike", "Alice", "Kate" })
+            {
+            "Tom", "Bob", "Sam"
+            };
 
-            // проверяем количество элементов после удаления
-            Console.WriteLine($"Count: {phoneBook.Count}"); // Count: 0
+
 
 
         }
