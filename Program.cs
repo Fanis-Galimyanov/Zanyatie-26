@@ -8,23 +8,17 @@ namespace z25
         static void Main(string[] args)
         {
 
-            LinkedList<string> people = new LinkedList<string>(new[] { "Tom", "Sam", "Bob" });
+            var people = new LinkedList<string>();
+            people.AddLast("Tom"); // вставляем узел со значением Tom на последнее место
+                                   //так как в списке нет узлов, то последнее будет также и первым
+            people.AddFirst("Bob"); // вставляем узел со значением Bob на первое место
 
-            // от начала до конца списка
-            var currentNode = people.First;
-            while (currentNode != null)
-            {
-                Console.WriteLine(currentNode.Value);
-                currentNode = currentNode.Next;
-            }
+            // вставляем после первого узла новый узел со значением Mike
+            if (people.First != null) people.AddAfter(people.First, "Mike");
 
-            // с конца до начала списка
-            currentNode = people.Last;
-            while (currentNode != null)
-            {
-                Console.WriteLine(currentNode.Value);
-                currentNode = currentNode.Previous;
-            }
+            // теперь у нас список имеет следующую последовательность: Bob Mike Tom
+            foreach (var person in people) Console.WriteLine(person);
+
 
 
 
