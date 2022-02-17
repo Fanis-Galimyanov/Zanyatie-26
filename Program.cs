@@ -11,10 +11,10 @@ namespace z25
             var employees = new List<string> { "Tom", "Sam", "Bob" };
 
             LinkedList<string> people = new LinkedList<string>(employees);
-            foreach (string person in people)
-            {
-                Console.WriteLine(person);
-            }
+            Console.WriteLine(people.Count);            // 3
+            Console.WriteLine(people.First?.Value);    // Tom
+            Console.WriteLine(people.Last?.Value);    // Bob
+
 
 
         }
