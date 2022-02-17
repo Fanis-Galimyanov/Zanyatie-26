@@ -7,34 +7,33 @@ namespace z25
     {
         static void Main(string[] args)
         {
-            List<string> people = new List<string>() { "Tom" };
 
-            people.Add("Bob"); // добавление элемента
-                               // people = { "Tom", "Bob" };
+            var people = new List<string>() { "Eugene", "Mike", "Kate", "Tom", "Bob", "Sam", "Tom", "Alice" };
 
-            people.AddRange(new[] { "Sam", "Alice" });   // добавляем массив
-                                                         // people = { "Tom", "Bob", "Sam", "Alice" };
-                                                         // также можно было бы добавить другой список
-                                                         // people.AddRange(new List<string>(){ "Sam", "Alice" });
+            people.RemoveAt(1); //  удаляем второй элемент
+                                // people = { "Eugene", "Kate", "Tom", "Bob", "Sam", "Tom", "Alice" };
 
-            people.Insert(0, "Eugene"); // вставляем на первое место
-                                        // people = { "Eugene", "Tom", "Bob", "Sam", "Alice" };
+            people.Remove("Tom"); //  удаляем элемент "Tom"
+                                  // people = { "Eugene", "Kate", "Bob", "Sam", "Tom", "Alice" };
 
-            people.InsertRange(1, new string[] { "Mike", "Kate" }); // вставляем массив с индекса 1
-                                                                    // people = { "Eugene", "Mike", "Kate", "Tom", "Bob", "Sam", "Alice" };
+            // удаляем из списка все элементы, длина строки которых равна 3
+            people.RemoveAll(person => person.Length == 3);
+            // people = { "Eugene", "Kate", "Alice" };
 
-            // также можно было бы добавить другой список
-             people.InsertRange(1, new List<string>(){ "Ivan", "Alexander" });
+            // удаляем из списка 2 элемента начиная с индекса 1
+            people.RemoveRange(1, 2);
+            // people = { "Eugene"};
 
-            
-            foreach (var person in people)
+            // полностью очищаем список
+            people.Clear();
+            // people = {  };
+
+
+
+            /*foreach (var person in people)
             {
                 Console.WriteLine(person);
-            }
-
-
-
-
+            }*/
 
         }
     }
